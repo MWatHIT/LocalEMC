@@ -4,8 +4,8 @@ class dnfgetupdate {
   # off "Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?"
   # errors.
   exec { 'dnf update':
-    command => '/usr/bin/dnf update',
-    unless => "/usr/bin/test -d Plone"
+    command => 'sudo /usr/bin/dnf update',
+    # unless => "sudo /usr/bin/test -d Plone"
   }
 
 }

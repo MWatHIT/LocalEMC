@@ -6,32 +6,39 @@
 
 Vagrant.configure("2") do |config|
     config.vm.box = "box-cutter/fedora22"
+    config.ssh.username = "vagrant"
+    config.ssh.password = "vagrant"
+    config.vm.network :forwarded_port, guest: 8080, host: 8088
 
-    config.vm.network :forwarded_port, guest: 8080, host: 8080
+    config.ssh.forward_agent = true
 
     config.vm.provider "virtualbox" do |vb|
         vb.customize ["modifyvm", :id, "--memory", "2048"]
-        vb.customize ["modifyvm", :id, "--name", "EMC" ]
+        vb.customize ["modifyvm", :id, "--name", "EMCserver" ]
+        # vb.gui = true
     end
+    config.vm.provision "shell",
+        inline: "mkdir ~/ys"
+    # config.vm.provision "shell",inline:"sudo dnf install puppet -y"
 
-    # Run apt-get update as a separate step in order to avoid
-    # package install errors
-    config.vm.provision :puppet do |puppet|
-        puppet.manifests_path = "manifests"
-        puppet.manifest_file  = "dnfgetupdate.pp"
-    end
+    # # Run apt-get update as a separate step in order to avoid
+    # # package install errors
+    # config.vm.provision :puppet do |puppet|
+    #     puppet.manifests_path = "manifests"
+    #     puppet.manifest_file  = "dnfgetupdate.pp"
+    # end
+    #
+    # # ensure we have the packages we need
+    # config.vm.provision :puppet do |puppet|
+    #     puppet.manifests_path = "manifests"
+    #     puppet.manifest_file  = "plone.pp"
+    # end
 
-    # ensure we have the packages we need
-    config.vm.provision :puppet do |puppet|
-        puppet.manifests_path = "manifests"
-        puppet.manifest_file  = "plone.pp"
-    end
-
-    # Create a Putty-style keyfile for Windows users
-    config.vm.provision :shell do |shell|
-        shell.path = "manifests/host_setup.sh"
-        shell.args = RUBY_PLATFORM
-    end
+    # # Create a Putty-style keyfile for Windows users
+    # config.vm.provision :shell do |shell|
+    #     shell.path = "manifests/host_setup.sh"
+    #     shell.args = RUBY_PLATFORM
+    # end
 
     # # install Plone
     #     config.vm.provision :shell do |shell|
