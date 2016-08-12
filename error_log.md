@@ -109,5 +109,5 @@
       >>> import datetime
       >>> datetime.__file__
       '/usr/lib64/python2.7/lib-dynload/datetime.so'
-
+[reference](http://docs.plone.org/develop/plone/misc/datetime.html)
 ---
