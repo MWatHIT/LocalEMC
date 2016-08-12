@@ -6,28 +6,35 @@
 
 Vagrant.configure("2") do |config|
     config.vm.box = "box-cutter/fedora22"
+# add by ys
     config.ssh.username = "vagrant"
     config.ssh.password = "vagrant"
     config.vm.network :forwarded_port, guest: 8080, host: 8088
 
-    config.ssh.forward_agent = true
+    # config.ssh.forward_agent = true
 
     config.vm.provider "virtualbox" do |vb|
         vb.customize ["modifyvm", :id, "--memory", "2048"]
         vb.customize ["modifyvm", :id, "--name", "EMCserver" ]
         # vb.gui = true
     end
-    config.vm.provision "shell",
-        inline: "mkdir ~/ys"
-    # config.vm.provision "shell",inline:"sudo dnf install puppet -y"
 
+    config.vm.provision "shell",path: "env.sh"
+
+
+
+
+    # config.vm.provision "shell",
+    # #     inline: "mkdir /vagrant/ys"
+    # config.vm.provision "shell",inline:"sudo dnf install puppet -y"
+    # config.vm.provision "shell",inline:"sudo chkconfig puppet on"
     # # Run apt-get update as a separate step in order to avoid
     # # package install errors
     # config.vm.provision :puppet do |puppet|
-    #     puppet.manifests_path = "manifests"
-    #     puppet.manifest_file  = "dnfgetupdate.pp"
+    #     # puppet.manifests_path = "manifests"
+    #     puppet.manifest_file  = "manifests/dnfgetupdate.pp"
     # end
-    #
+
     # # ensure we have the packages we need
     # config.vm.provision :puppet do |puppet|
     #     puppet.manifests_path = "manifests"
