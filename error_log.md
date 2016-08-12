@@ -1,4 +1,4 @@
-# error
+# mr.develop error solved
 
       (env) [vagrant@localhost sites]$ bin/buildout -Nv -c buildout_dev.cfg
       Installing 'mr.developer'.
@@ -34,3 +34,44 @@
       mr.developer: Filesystem package 'plone.dexterity' doesn't need a checkout.
       mr.developer: Filesystem package 'mockup' doesn't need a checkout.
       mr.developer: There have been errors, see messages above.
+
+# MySQL-python Error solved
+
+      (env) [vagrant@localhost sites]$ sudo pip install MySQL-python
+      You are using pip version 6.0.8, however version 8.1.2 is available.
+      You should consider upgrading via the 'pip install --upgrade pip' command.
+      Collecting MySQL-python
+      Using cached MySQL-python-1.2.5.zip
+      sh: mysql_config: 未找到命令
+      Traceback (most recent call last):
+      File "<string>", line 20, in <module>
+      File "/tmp/pip-build-lcr_PX/MySQL-python/setup.py", line 17, in <module>
+        metadata, options = get_config()
+      File "setup_posix.py", line 43, in get_config
+        libs = mysql_config("libs_r")
+      File "setup_posix.py", line 25, in mysql_config
+        raise EnvironmentError("%s not found" % (mysql_config.path,))
+      EnvironmentError: mysql_config not found
+      Complete output from command python setup.py egg_info:
+      sh: mysql_config: 未找到命令
+
+      Traceback (most recent call last):
+
+      File "<string>", line 20, in <module>
+
+      File "/tmp/pip-build-lcr_PX/MySQL-python/setup.py", line 17, in <module>
+
+        metadata, options = get_config()
+
+      File "setup_posix.py", line 43, in get_config
+
+        libs = mysql_config("libs_r")
+
+      File "setup_posix.py", line 25, in mysql_config
+
+        raise EnvironmentError("%s not found" % (mysql_config.path,))
+
+      EnvironmentError: mysql_config not found
+
+      ----------------------------------------
+      Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-lcr_PX/MySQL-python

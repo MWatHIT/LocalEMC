@@ -2,9 +2,10 @@
 AS_VAGRANT="sudo -u vagrant"
 
 dnf update -y
-sudo dnf install gcc-c++ patch openssl-devel libjpeg-devel libxslt-devel make which python-devel -y
+sudo dnf install gcc-c++ patch openssl-devel libjpeg-devel libxslt-devel make which python-devel mysql-devel -y
 sudo dnf install readline-devel wv poppler-utils -y
-pip install virtualenv
+sudo pip install --upgrade pip
+sudo pip install virtualenv
 mkdir -p /home/vagrant/Plone/env
 sudo virtualenv --no-site-packages /home/vagrant/Plone/env/
 source /home/vagrant/Plone/env/bin/activate
