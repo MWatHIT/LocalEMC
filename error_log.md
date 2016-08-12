@@ -35,6 +35,8 @@
       mr.developer: Filesystem package 'mockup' doesn't need a checkout.
       mr.developer: There have been errors, see messages above.
 
+---
+
 # MySQL-python Error solved
 
       (env) [vagrant@localhost sites]$ sudo pip install MySQL-python
@@ -75,3 +77,37 @@
 
       ----------------------------------------
       Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-lcr_PX/MySQL-python
+
+---
+
+# ImportError: cannot import name datetime
+
+      (env) [vagrant@localhost sites]$ ./bin/instance start
+      Traceback (most recent call last):
+        File "./bin/instance", line 319, in <module>
+          import plone.recipe.zope2instance.ctl
+        File "/vagrant/Plone_workspace/Plone5/sites/eggs/plone.reload-2.0.1-py2.7.egg/plone/__init__.py", line 1, in <module>
+          __import__('pkg_resources').declare_namespace(__name__)
+        File "/vagrant/Plone_workspace/Plone5/sites/eggs/setuptools-20.2.2-py2.7.egg/pkg_resources/__init__.py", line 36, in <module>
+          import plistlib
+        File "/usr/lib64/python2.7/plistlib.py", line 62, in <module>
+          import datetime
+        File "/vagrant/Plone_workspace/Plone5/sites/eggs/DateTime-4.0.1-py2.7.egg/datetime/__init__.py", line 14, in <module>
+          from .DateTime import DateTime
+        File "/vagrant/Plone_workspace/Plone5/sites/eggs/DateTime-4.0.1-py2.7.egg/datetime/DateTime.py", line 24, in <module>
+          from datetime import datetime
+        File "/vagrant/Plone_workspace/Plone5/sites/eggs/DateTime-4.0.1-py2.7.egg/datetime/datetime.py", line 24, in <module>
+          from datetime import datetime
+      ImportError: cannot import name datetime
+
+###  more information
+
+      [vagrant@localhost ~]$ python
+      Python 2.7.10 (default, Jun 20 2016, 14:45:40)
+      [GCC 5.3.1 20160406 (Red Hat 5.3.1-6)] on linux2
+      Type "help", "copyright", "credits" or "license" for more information.
+      >>> import datetime
+      >>> datetime.__file__
+      '/usr/lib64/python2.7/lib-dynload/datetime.so'
+
+---
