@@ -2,13 +2,12 @@
 AS_VAGRANT="sudo -u vagrant"
 
 dnf update -y
-dnf install python-setuptools python-devel openssl openssl-devel libxml2-devel libxslt-devel zlib-devel libjpeg-devel expat expat-devel libxml2 libxslt zlib libjpeg vim git -y
-dnf install readline-devel wv poppler-utils freetype-devel lcms-libs lcms-devel -y
-dnf groupinstall "development tools"
+sudo dnf install gcc-c++ patch openssl-devel libjpeg-devel libxslt-devel make which python-devel -y
+sudo dnf install readline-devel wv poppler-utils -y
 pip install virtualenv
-mkdir -p ~/Plone/env
-virtualenv --no-site-packages ~/Plone/env/
-source ~/Plone/env/bin/activate
+mkdir -p /home/vagrant/Plone/env
+sudo virtualenv --no-site-packages /home/vagrant/Plone/env/
+source /home/vagrant/Plone/env/bin/activate
 mkdir -p /vagrant/Plone_workspace
 cd /vagrant/Plone_workspace
 cp -r /vagrant/Plone5/ Plone5
