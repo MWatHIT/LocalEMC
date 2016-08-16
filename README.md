@@ -5,7 +5,7 @@
       
 ## Downlad Box from Baidu
 
-[Box](http://pan.baidu.com/s/1slakcgP)
+[Box](https://pan.baidu.com/s/1slIPxfR)
       
 ## Get Vagrantfile
 
