@@ -4,10 +4,13 @@
       vagrant plugin install vagrant-vbguest
       
 ## Downlad Box from Baidu
-      http://pan.baidu.com/s/1slakcgP
+
+[Box](http://pan.baidu.com/s/1slakcgP)
       
 ## Get Vagrantfile
 
+[vagrantfile](https://github.com/yanghaa/LocalEMC/releases/download/v1.1/Vagrantfile)
+      
 ## VirtualBox up
       vagrant up
 ## star EMCplone
