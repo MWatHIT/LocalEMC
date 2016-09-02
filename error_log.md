@@ -218,4 +218,56 @@
           ZopeXMLConfigurationError: File "/home/vagrant/Plone5/sites/eggs/Products.CMFPlone-5.0.4-py2.7.egg/Products/CMFPlone/meta.zcml", line 46.4-50.10
           ImportError: cannot import name PreviewableFileCreatedEvent
 [Reference](http://docs.plone.org/develop/addons/components/zcml.html#zcml-workflow)
+
 ---
+
+# no crontab for emc
+[add crontab](http://www.2cto.com/os/201110/109339.html)
+
+# haproxy-build
+
+      While:
+        Installing haproxy-build.
+
+      An internal error occurred due to a bug in either zc.buildout or in a
+      recipe being used:
+      Traceback (most recent call last):
+        File "/home/emc/code/Plone5/sites/eggs/zc.buildout-2.5.2-py2.7.egg/zc/buildout/buildout.py", line 1995, in main
+          getattr(buildout, command)(args)
+        File "/home/emc/code/Plone5/sites/eggs/zc.buildout-2.5.2-py2.7.egg/zc/buildout/buildout.py", line 666, in install
+          installed_files = self[part]._call(recipe.install)
+        File "/home/emc/code/Plone5/sites/eggs/zc.buildout-2.5.2-py2.7.egg/zc/buildout/buildout.py", line 1410, in _call
+          return f()
+        File "/home/emc/code/Plone5/sites/eggs/plone.recipe.haproxy-1.1.2-py2.7.egg/plone/recipe/haproxy/__init__.py", line 73, in install
+          url, self.name, self.download_cache, self.install_from_cache)
+        File "/home/emc/code/Plone5/sites/eggs/plone.recipe.haproxy-1.1.2-py2.7.egg/plone/recipe/haproxy/__init__.py", line 196, in getFromCache
+          open(fname, 'w').write(urllib2.urlopen(url).read())
+        File "/usr/lib64/python2.7/urllib2.py", line 154, in urlopen
+          return opener.open(url, data, timeout)
+        File "/usr/lib64/python2.7/urllib2.py", line 437, in open
+          response = meth(req, response)
+        File "/usr/lib64/python2.7/urllib2.py", line 550, in http_response
+          'http', request, response, code, msg, hdrs)
+        File "/usr/lib64/python2.7/urllib2.py", line 469, in error
+          result = self._call_chain(*args)
+        File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+          result = func(*args)
+        File "/usr/lib64/python2.7/urllib2.py", line 656, in http_error_302
+          return self.parent.open(new, timeout=req.timeout)
+        File "/usr/lib64/python2.7/urllib2.py", line 431, in open
+          response = self._open(req, data)
+        File "/usr/lib64/python2.7/urllib2.py", line 449, in _open
+          '_open', req)
+        File "/usr/lib64/python2.7/urllib2.py", line 409, in _call_chain
+          result = func(*args)
+        File "/usr/lib64/python2.7/urllib2.py", line 1229, in http_open
+          return self.do_open(httplib.HTTPConnection, req)
+        File "/usr/lib64/python2.7/urllib2.py", line 1202, in do_open
+          r = h.getresponse(buffering=True)
+        File "/usr/lib64/python2.7/httplib.py", line 1132, in getresponse
+          response.begin()
+        File "/usr/lib64/python2.7/httplib.py", line 453, in begin
+          version, status, reason = self._read_status()
+        File "/usr/lib64/python2.7/httplib.py", line 417, in _read_status
+          raise BadStatusLine(line)
+      BadStatusLine: ''      
