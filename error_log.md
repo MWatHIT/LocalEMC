@@ -271,3 +271,14 @@
         File "/usr/lib64/python2.7/httplib.py", line 417, in _read_status
           raise BadStatusLine(line)
       BadStatusLine: ''      
+
+---
+
+# netstat 差异
+- server
+
+![server](https://raw.githubusercontent.com/yanghaa/LocalEMC/master/img/netstat_server.png)
+
+- local
+
+![](https://raw.githubusercontent.com/yanghaa/LocalEMC/master/img/netstat_vbox.png)
