@@ -5,3 +5,11 @@
 Plone_workspace/Plone5/
 
 pip_package/
+
+.DS_Store
+
+*.gz
+
+EMCserver.box
+
+Plone5.zip
