@@ -282,3 +282,45 @@
 - local
 
 ![](https://raw.githubusercontent.com/yanghaa/LocalEMC/master/img/netstat_vbox.png)
+
+
+# About "absolute_url"
+### 问题描述
+admin用户下正常登陆，并进行了一些文件夹的创建及删除工作，并一切正常。
+
+admin下添加工作台类型，出现错误，忽略错误继续在内容视图下添加子目录直接访问子文件夹正常显示。
+
+之后我在用户管理界面添加了一个site 管理员，并尝试从另外的浏览器进行登录，fg模式下出现以下内容：
+
+      AttributeError: 'NoneType' object has no attribute 'absolute_url'
+
+       - Expression: "provider:plone.mainnavigation"
+       - Filename:   ... emc.policy/emc/policy/browser/templates/main_template.pt
+       - Location:   (line 57: col 59)
+       - Source:     ... er:plone.portaltop" />
+                                            ^
+       - Arguments:  repeat: {...} (0)
+                     template: <ViewPageTemplateFile - at 0x7fa9af7c3e90>
+                     views: <ViewMapper - at 0x7fa9af269950>
+                     modules: <instance - at 0x7fa9be2ebe60>
+                     args: <tuple - at 0x7fa9cb465050>
+                     here: <ImplicitAcquisitionWrapper front-page at 0x7fa9b1081f50>
+                     user: <ImplicitAcquisitionWrapper - at 0x7fa9b10814b0>
+                     nothing: <NoneType - at 0x7fa9cb25cf80>
+                     container: <ImplicitAcquisitionWrapper front-page at 0x7fa9b1081f50>
+                     request: <instance - at 0x7fa9ad95fef0>
+                     wrapped_repeat: <SafeMapping - at 0x7fa9afb78100>
+                     traverse_subpath: <list - at 0x7fa9b04714d0>
+                     default: <object - at 0x7fa9cb43b590>
+                     loop: {...} (0)
+                     context: <ImplicitAcquisitionWrapper front-page at 0x7fa9b1081f50>
+                     view: <SimpleViewClass from /home/emc/code/Plone5/sites/eggs/plone.app.contenttypes-1.2.11-py2.7.egg/plone/app/contenttypes/browser/templates/document.pt document_view at 0x7fa9aef59f90>
+                     translate: <function translate at 0x7fa9ad94bb90>
+                     root: <ImplicitAcquisitionWrapper Zope at 0x7fa9b1091780>
+                     options: {...} (0)
+                     target_language: zh_CN
+      > /home/emc/code/Plone5/sites/eggs/AccessControl-3.0.12-py2.7-linux-x86_64.egg/AccessControl/ImplPython.py(675)guarded_getattr()
+      -> v = getattr(inst, name)
+
+
+重启 instance 可以显示到 http://testurl01:8088/界面，点击相应站点http://testurl01:8088/AHI则卡死，后台出现以上错误。
