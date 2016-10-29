@@ -22,3 +22,5 @@ we need type the passwd everytime.
 ## 进一步配置
 
 [生产模式](https://github.com/yanghaa/LocalEMC/blob/master/生产模式.md)
+
+[sage服务器配置](/sage.md)
