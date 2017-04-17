@@ -14,7 +14,8 @@ Vagrant.configure("2") do |config|
     config.vbguest.no_remote = true
     config.ssh.username = "vagrant"
     config.ssh.password = "vagrant"
-    config.vm.network :forwarded_port, guest: 8080, host: 8088
+    config.vm.network :forwarded_port, guest: 8080, host: 8080
+    config.vm.network :forwarded_port, guest: 8089, host: 8089
     config.vm.network :forwarded_port, guest: 80, host: 1080
 
     # config.ssh.forward_agent = true

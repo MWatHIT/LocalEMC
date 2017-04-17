@@ -13,3 +13,13 @@ pip_package/
 EMCserver.box
 
 Plone5.zip
+
+varnish_local.vcl
+
+varnish_server.vcl
+
+*.zip
+
+package.box
+
+package.z01
