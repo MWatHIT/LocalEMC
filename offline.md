@@ -14,7 +14,7 @@ Steps for build emc project without internet
 
         mkdir -p repo
         cd repo
-        sudo dnf download --resolve git gcc-c++ patch openssl-devel libjpeg-devel libxslt-devel make which python-devel mysql-devel readline-devel wv poppler-utils gcc-gfortran make m4 perl tar perl-ExtUtils-MakeMaker gcc openssl textlive
+        sudo dnf download --resolve git gcc-c++ patch openssl-devel libjpeg-devel libxslt-devel make which python-devel mysql-devel readline-devel wv poppler-utils gcc-gfortran make m4 perl tar perl-ExtUtils-MakeMaker gcc openssl texlive httpd mysql-community-server
   - 创建本地源
         sudo yum insall createrepo #maybe yum-utils
         createrepo -v /path/repo
