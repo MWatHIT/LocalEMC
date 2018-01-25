@@ -24,3 +24,7 @@ we need type the passwd everytime.
 [生产模式](https://github.com/yanghaa/LocalEMC/blob/master/生产模式.md)
 
 [sage服务器配置](/sage.md)
+
+## 解决Apache 403
+
+      restorecon -r /var/www/html
